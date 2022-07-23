@@ -2,8 +2,14 @@
   "name": "daily-tasks",
 	"displayName": "VS Code Daily Tasks",
 	"description": "Quickly manage tasks on a daily basis",
+	"icon": "icon.png",
 	"version": "0.1.0",
 	"license": "MIT",
+	"author": {
+		"name": "Andreas Müller",
+		"url": "https://devmount.de"
+	},
+	"publisher": "devmount",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/devmount/daily-tasks"
@@ -14,6 +20,11 @@
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"tasks",
+		"todo",
+		"productivity"
+],
 	"activationEvents": [
 		"onView:tasks.list",
 		"onCommand:tasks.addTask",
