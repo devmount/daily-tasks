@@ -1,9 +1,7 @@
 # Change Log
 
-All notable changes to the "daily-tasks" extension will be documented in this file.
+All notable changes to the "daily-tasks" extension are documented here.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## v0.1.0
 
-## [Unreleased]
-
-- Initial release
+- Initial release of DailyTasks.

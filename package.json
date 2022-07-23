@@ -2,7 +2,7 @@
   "name": "daily-tasks",
 	"displayName": "VS Code Daily Tasks",
 	"description": "Quickly manage tasks on a daily basis",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.69.0"
