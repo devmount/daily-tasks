@@ -4,6 +4,10 @@
 	"description": "Quickly manage tasks on a daily basis",
 	"version": "0.1.0",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/devmount/daily-tasks"
+	},
 	"engines": {
 		"vscode": "^1.69.0"
 	},
