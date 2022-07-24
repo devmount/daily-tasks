@@ -1,6 +1,6 @@
 {
   "name": "daily-tasks",
-	"displayName": "VS Code Daily Tasks",
+	"displayName": "Daily Tasks",
 	"description": "Quickly manage tasks on a daily basis",
 	"icon": "icon.png",
 	"version": "0.1.0",
@@ -24,7 +24,7 @@
 		"tasks",
 		"todo",
 		"productivity"
-],
+	],
 	"activationEvents": [
 		"onView:tasks.list",
 		"onCommand:tasks.addTask",

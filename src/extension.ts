@@ -1,9 +1,13 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { LocalStorageService } from './localStorageService';
 
 // Status bar entry to show number of open tasks
 let tasksStatusBarItem: vscode.StatusBarItem;
+
+// Storage manager
+let storageManager: LocalStorageService;
 
 // this method is called when extension is activated
 // extension is activated the very first time the command is executed
@@ -30,6 +34,9 @@ export function activate(context: vscode.ExtensionContext) {
 	// create a new status bar item that we can now manage
 	tasksStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
 	context.subscriptions.push(tasksStatusBarItem);
+
+	// init storage manager to keep list entries
+	storageManager = new LocalStorageService(context.globalState);
 }
 
 class TasksViewProvider implements vscode.WebviewViewProvider {
@@ -65,8 +72,16 @@ class TasksViewProvider implements vscode.WebviewViewProvider {
 				case 'tasksOpen':
 					updateStatusBarItem(data.value);
 					break;
+				case 'tasksSave':
+					storageManager.setValue<Array<{ value: string, done: boolean }>>('list', data.value);
 			}
 		});
+
+		// inititial task list from storage
+		let tasks = storageManager.getValue<Array<{ value: string, done: boolean }>>('list');
+		if (tasks) {
+			webviewView.webview.postMessage({ type: 'initTasks', value: tasks });
+		}
 	}
 
 	public addTask() {
