@@ -3,12 +3,8 @@
 (function () {
 	const vscode = acquireVsCodeApi();
 
-	const oldState = vscode.getState() || { tasks: [] };
-
 	/** @type {Array<{ value: string, done: boolean }>} */
-	let tasks = oldState.tasks;
-
-	updateTaskList(tasks);
+	let tasks = [];
 
 	document.querySelector('.add-task-button')?.addEventListener('click', () => {
 		addTask();
@@ -22,6 +18,10 @@
 	window.addEventListener('message', event => {
 		// The json data that the extension sent
 		switch (event.data.type) {
+			case 'initTasks':
+				tasks = event.data.value;
+				updateTaskList(tasks);
+				break;
 			case 'addTask':
 				addTask();
 				break;
@@ -46,10 +46,11 @@
 			// checkbox to show state of task (unfinished or done)
 			const check = document.createElement('div');
 			check.className = 'task-state';
-			if (task.done)
-				check.classList.add('checked')
-			else
+			if (task.done) {
+				check.classList.add('checked');
+			} else {
 				check.classList.remove('checked');
+			}
 			check.addEventListener('click', () => {
 				check.classList.toggle('checked');
 				task.done = check.classList.contains('checked');
@@ -81,9 +82,7 @@
 			li.appendChild(clear);
 			ul.appendChild(li);
 		}
-		tasksChanged(tasks.filter(t => !t.done).length);
-		// Update the saved state
-		vscode.setState({ tasks: tasks });
+		tasksChanged(tasks);
 	}
 
 	/**
@@ -106,10 +105,14 @@
 
 	/** 
 	 * Post message about changed tasks
-	 * @param {number} length 
+	 * @param {Array<{ value: string, done: boolean }>} tasks 
 	 */
-	function tasksChanged(length) {
-		vscode.postMessage({ type: 'tasksOpen', value: length });
+	function tasksChanged(tasksChanged) {
+		// Update the saved state
+		tasks = tasksChanged;
+		// Post updates
+		vscode.postMessage({type: 'tasksOpen', value: tasksChanged.filter(t => !t.done).length });
+		vscode.postMessage({type: 'tasksSave', value: tasksChanged });
 	}
 
 }());
