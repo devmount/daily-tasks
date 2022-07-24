@@ -3,7 +3,7 @@
 	"displayName": "Daily Tasks",
 	"description": "Quickly manage tasks on a daily basis",
 	"icon": "icon.png",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"license": "MIT",
 	"author": {
 		"name": "Andreas Müller",
