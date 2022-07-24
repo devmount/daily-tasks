@@ -3,8 +3,11 @@
 (function () {
 	const vscode = acquireVsCodeApi();
 
+	const oldState = vscode.getState() || { tasks: [] };
+
 	/** @type {Array<{ value: string, done: boolean }>} */
-	let tasks = [];
+	let tasks = oldState.tasks;
+	updateTaskList(tasks, false);
 
 	document.querySelector('.add-task-button')?.addEventListener('click', () => {
 		addTask();
@@ -20,7 +23,7 @@
 		switch (event.data.type) {
 			case 'initTasks':
 				tasks = event.data.value;
-				updateTaskList(tasks);
+				updateTaskList(tasks, true);
 				break;
 			case 'addTask':
 				addTask();
@@ -34,8 +37,9 @@
 	/**
 	 * Build and append all list items
 	 * @param {Array<{ value: string, done: boolean }>} tasks
+	 * @param {Boolean} save
 	 */
-	function updateTaskList(tasks) {
+	function updateTaskList(tasks, save) {
 		const ul = document.querySelector('.task-list');
 		ul.textContent = '';
 		for (const task of tasks) {
@@ -54,7 +58,7 @@
 			check.addEventListener('click', () => {
 				check.classList.toggle('checked');
 				task.done = check.classList.contains('checked');
-				updateTaskList(tasks);
+				updateTaskList(tasks, true);
 			});
 
 			// input field for task description
@@ -64,7 +68,7 @@
 			description.value = task.value;
 			description.addEventListener('change', (e) => {
 				task.value = e.target.value;
-				updateTaskList(tasks);
+				updateTaskList(tasks, true);
 			});
 
 			// clear icon to remove single task
@@ -73,7 +77,7 @@
 			clear.textContent = '×';
 			clear.addEventListener('click', () => {
 				tasks.splice(tasks.indexOf(task), 1);
-				updateTaskList(tasks);
+				updateTaskList(tasks, true);
 			});
 
 			// build list entry and append it to list
@@ -82,7 +86,9 @@
 			li.appendChild(clear);
 			ul.appendChild(li);
 		}
-		tasksChanged(tasks);
+		if (save) {
+			tasksChanged(tasks);
+		}
 	}
 
 	/**
@@ -90,7 +96,7 @@
 	 */
 	function addTask() {
 		tasks.unshift({ value: '', done: false });
-		updateTaskList(tasks);
+		updateTaskList(tasks, true);
 		let item = document.querySelector('.task-input');
 		item.focus();
 	}
@@ -100,7 +106,7 @@
 	 */
 	function clearTasks() {
 		tasks = [];
-		updateTaskList(tasks);
+		updateTaskList(tasks, true);
 	}
 
 	/** 
@@ -110,9 +116,17 @@
 	function tasksChanged(tasksChanged) {
 		// Update the saved state
 		tasks = tasksChanged;
+		vscode.setState({ tasks: tasksChanged });
 		// Post updates
-		vscode.postMessage({type: 'tasksOpen', value: tasksChanged.filter(t => !t.done).length });
-		vscode.postMessage({type: 'tasksSave', value: tasksChanged });
+		vscode.postMessage({
+			type: 'tasksOpen',
+			open: tasksChanged.filter(t => t.done).length,
+			total: tasksChanged.length
+		});
+		vscode.postMessage({
+			type: 'tasksSave',
+			value: tasksChanged
+		});
 	}
 
 }());

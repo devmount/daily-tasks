@@ -33,6 +33,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// create a new status bar item that we can now manage
 	tasksStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
+	tasksStatusBarItem.command = 'tasks.addTask';
+	tasksStatusBarItem.tooltip = 'Add new Task';
 	context.subscriptions.push(tasksStatusBarItem);
 
 	// init storage manager to keep list entries
@@ -70,7 +72,7 @@ class TasksViewProvider implements vscode.WebviewViewProvider {
 		webviewView.webview.onDidReceiveMessage(data => {
 			switch (data.type) {
 				case 'tasksOpen':
-					updateStatusBarItem(data.value);
+					updateStatusBarItem(data.open, data.total);
 					break;
 				case 'tasksSave':
 					storageManager.setValue<Array<{ value: string, done: boolean }>>('list', data.value);
@@ -159,10 +161,18 @@ function getNonce() {
 	return text;
 }
 
-function updateStatusBarItem(n: number): void {
-	if (n > 0) {
-		tasksStatusBarItem.text = `$(checklist) ${n} TASKS OPEN`;
+function updateStatusBarItem(open: number, total: number): void {
+	if (total > 0 && open === 0) {
+		tasksStatusBarItem.text = `$(error) ${open}/${total} Tasks Done`;
 		tasksStatusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.errorBackground');
+		tasksStatusBarItem.show();
+	} else if (total > 0 && open < total) {
+		tasksStatusBarItem.text = `$(issue-opened) ${open}/${total} Tasks Done`;
+		tasksStatusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.warningBackground');
+		tasksStatusBarItem.show();
+	}	else if (total > 0 && open === total) {
+		tasksStatusBarItem.text = `$(check) ${open}/${total} Tasks Done`;
+		tasksStatusBarItem.backgroundColor = undefined;
 		tasksStatusBarItem.show();
 	} else {
 		tasksStatusBarItem.hide();
