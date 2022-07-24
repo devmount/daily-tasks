@@ -111,8 +111,15 @@
 		// Update the saved state
 		tasks = tasksChanged;
 		// Post updates
-		vscode.postMessage({type: 'tasksOpen', value: tasksChanged.filter(t => !t.done).length });
-		vscode.postMessage({type: 'tasksSave', value: tasksChanged });
+		vscode.postMessage({
+			type: 'tasksOpen',
+			open: tasksChanged.filter(t => t.done).length,
+			total: tasksChanged.length
+		});
+		vscode.postMessage({
+			type: 'tasksSave',
+			value: tasksChanged
+		});
 	}
 
 }());
