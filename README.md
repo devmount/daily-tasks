@@ -16,8 +16,9 @@ This VS Code extension allows to quickly manage tasks on a daily basis.
 
 This extension contributes the following commands to the Command palette.
 
-- _Daily Tasks: Add Task_: Creates a new empty task
-- _Daily Tasks: Clear Tasks_: Wipes all existing tasks (cannot be undone)
+- _Daily Tasks: Focus on List View_ (`tasks.list.focus`): Opens and focuses the task list
+- _Daily Tasks: Add Task_ (`tasks.addTask`): Creates a new empty task on top
+- _Daily Tasks: Clear Tasks_ (`tasks.clearTasks`): Wipes all existing tasks (cannot be undone)
 
 <!--## Requirements
 
@@ -39,13 +40,21 @@ This extension contributes the following settings:
 Calling out known issues can help limit users opening duplicate issues against your extension.
 -->
 
+## Shortcuts
+
+VS Code provides configuration of shortcuts for all commands.
+However I recommend setting at least the following shortcut for easily adding new tasks:
+
+![dailytasks_shortcut](https://github.com/devmount/daily-tasks/assets/5441654/2fbd41db-3b42-4558-a44e-156916cd5a62)
+
+
 ## Release Notes
 
 Here is an overview of the changes per version.
 
 ### v0.2.0
 
-➕ Task list is now stored globally and now is shown even after refresh or workspace change
+➕ Task list is now stored globally and now is shown even after refresh or workspace change  
 💚 Status bar is now enhanced with status colora, tooltip and new-task command
 
 ### v0.1.0
