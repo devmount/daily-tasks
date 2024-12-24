@@ -15,7 +15,7 @@
 		"url": "https://github.com/devmount/daily-tasks"
 	},
 	"engines": {
-		"vscode": "^1.69.0"
+		"vscode": "^1.75.0"
 	},
 	"categories": [
 		"Other"
@@ -24,11 +24,6 @@
 		"tasks",
 		"todo",
 		"productivity"
-	],
-	"activationEvents": [
-		"onView:tasks.list",
-		"onCommand:tasks.addTask",
-		"onCommand:tasks.clearTasks"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -65,24 +60,24 @@
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "yarn run compile",
+		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile && yarn run lint",
+		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.69.0",
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.1",
-		"@types/node": "16.x",
-		"@typescript-eslint/eslint-plugin": "^5.30.0",
-		"@typescript-eslint/parser": "^5.30.0",
-		"eslint": "^8.18.0",
-		"glob": "^8.0.3",
-		"mocha": "^10.0.0",
-		"typescript": "^4.7.4",
+		"@types/glob": "^8.1.0",
+		"@types/mocha": "^10.0.10",
+		"@types/node": "22.x",
+		"@typescript-eslint/eslint-plugin": "^8.18.2",
+		"@typescript-eslint/parser": "^8.18.2",
+		"eslint": "^9.17.0",
+		"glob": "^11.0.0",
+		"mocha": "^11.0.1",
+		"typescript": "^5.7.2",
 		"@vscode/test-electron": "^2.1.5"
 	}
 }
