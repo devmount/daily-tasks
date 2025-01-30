@@ -50,7 +50,7 @@ However I recommend setting at least the following shortcut for easily adding ne
 
 ## Release Notes
 
-Here is an overview of the changes per version.
+Here is an overview of the changes that were made in each version.
 
 ### v0.2.0
 
