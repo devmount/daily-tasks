@@ -4,12 +4,14 @@ First off, thanks for taking the time to contribute! You are awesome! :tada::cla
 
 ## Table Of Contents
 
+- [Table Of Contents](#table-of-contents)
 - [How to contribute](#how-to-contribute)
   - [Reporting Bugs](#reporting-bugs)
   - [Suggesting Enhancements](#suggesting-enhancements)
-  - [Pull Requests](#pull-requests)
+  - [Provide Code via Pull Requests](#provide-code-via-pull-requests)
+    - [Git Commit Messages](#git-commit-messages)
   - [Providing Translations](#providing-translations)
-  
+
 ## How to contribute
 
 ### Reporting Bugs

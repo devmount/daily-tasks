@@ -4,7 +4,6 @@ This VS Code extension allows to quickly manage tasks on a daily basis.
 
 ![daily_tasks_vscode](https://user-images.githubusercontent.com/5441654/180646165-635d1e35-d78f-48d1-a20c-cb4b9c8dfaef.gif)
 
-
 ## Features
 
 - Tasks can be created by command, button or click on the status bar item.
@@ -47,14 +46,13 @@ However I recommend setting at least the following shortcut for easily adding ne
 
 ![dailytasks_shortcut](https://github.com/devmount/daily-tasks/assets/5441654/2fbd41db-3b42-4558-a44e-156916cd5a62)
 
-
 ## Release Notes
 
 Here is an overview of the changes that were made in each version.
 
 ### v0.2.0
 
-➕ Task list is now stored globally and now is shown even after refresh or workspace change  
+➕ Task list is now stored globally and now is shown even after refresh or workspace change
 💚 Status bar is now enhanced with status colora, tooltip and new-task command
 
 ### v0.1.0
