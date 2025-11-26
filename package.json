@@ -1,84 +1,82 @@
 {
   "name": "daily-tasks",
-	"displayName": "Daily Tasks",
-	"description": "Quickly manage tasks on a daily basis",
-	"icon": "icon.png",
-	"version": "0.2.0",
-	"license": "MIT",
-	"author": {
-		"name": "Andreas Müller",
-		"url": "https://devmount.de"
-	},
-	"publisher": "devmount",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/devmount/daily-tasks"
-	},
-	"engines": {
-		"vscode": "^1.75.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"keywords": [
-		"tasks",
-		"todo",
-		"productivity"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "tasks.addTask",
-				"category": "Daily Tasks",
-				"title": "Add Task"
-			},
-			{
-				"command": "tasks.clearTasks",
-				"category": "Daily Tasks",
-				"title": "Clear Tasks",
-				"icon": "$(clear-all)"
-			}
-		],
-		"viewsContainers": {
-			"activitybar": [
-				{
-					"id": "tasks",
-					"title": "Daily Tasks",
-					"icon": "media/daily_tasks_icon.svg"
-				}
-			]
-		},
-		"views": {
+  "displayName": "Daily Tasks",
+  "description": "Quickly manage tasks on a daily basis",
+  "icon": "icon.png",
+  "version": "0.2.0",
+  "license": "MIT",
+  "author": {
+    "name": "Andreas Müller",
+    "url": "https://devmount.de"
+  },
+  "publisher": "devmount",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devmount/daily-tasks"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "tasks",
+    "todo",
+    "productivity"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tasks.addTask",
+        "category": "Daily Tasks",
+        "title": "Add Task"
+      },
+      {
+        "command": "tasks.clearTasks",
+        "category": "Daily Tasks",
+        "title": "Clear Tasks",
+        "icon": "$(clear-all)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "tasks",
+          "title": "Daily Tasks",
+          "icon": "media/daily_tasks_icon.svg"
+        }
+      ]
+    },
+    "views": {
       "tasks": [
         {
-					"type": "webview",
+          "type": "webview",
           "id": "tasks.list",
           "name": "List",
-					"icon": "media/daily_tasks_icon.svg"
+          "icon": "media/daily_tasks_icon.svg"
         }
-			]
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.69.0",
-		"@types/glob": "^8.1.0",
-		"@types/mocha": "^10.0.10",
-		"@types/node": "24.x",
-		"@typescript-eslint/eslint-plugin": "^8.18.2",
-		"@typescript-eslint/parser": "^8.18.2",
-		"eslint": "^9.17.0",
-		"glob": "^13.0.0",
-		"mocha": "^11.0.1",
-		"typescript": "^5.7.2",
-		"@vscode/test-electron": "^2.1.5"
-	}
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "oxlint src --type-aware",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "@types/vscode": "^1.69.0",
+    "@vscode/test-electron": "^2.1.5",
+    "glob": "^13.0.0",
+    "mocha": "^11.0.1",
+    "oxlint": "^1.30.0",
+    "oxlint-tsgolint": "^0.8.2",
+    "typescript": "^5.7.2"
+  }
 }
