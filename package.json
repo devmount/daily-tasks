@@ -54,7 +54,8 @@
         {
 					"type": "webview",
           "id": "tasks.list",
-          "name": "List"
+          "name": "List",
+					"icon": "media/daily_tasks_icon.svg"
         }
 			]
 		}
@@ -71,11 +72,11 @@
 		"@types/vscode": "^1.69.0",
 		"@types/glob": "^8.1.0",
 		"@types/mocha": "^10.0.10",
-		"@types/node": "22.x",
+		"@types/node": "24.x",
 		"@typescript-eslint/eslint-plugin": "^8.18.2",
 		"@typescript-eslint/parser": "^8.18.2",
 		"eslint": "^9.17.0",
-		"glob": "^11.1.0",
+		"glob": "^13.0.0",
 		"mocha": "^11.0.1",
 		"typescript": "^5.7.2",
 		"@vscode/test-electron": "^2.1.5"
