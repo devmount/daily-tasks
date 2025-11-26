@@ -53,7 +53,7 @@ class TasksViewProvider implements vscode.WebviewViewProvider {
 
 	public resolveWebviewView(
 		webviewView: vscode.WebviewView,
-		context: vscode.WebviewViewResolveContext,
+		_context: vscode.WebviewViewResolveContext,
 		_token: vscode.CancellationToken,
 	) {
 		this._view = webviewView;
@@ -121,9 +121,9 @@ class TasksViewProvider implements vscode.WebviewViewProvider {
 				-->
 				<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<link href="${styleResetUri}" rel="stylesheet">
-				<link href="${styleVSCodeUri}" rel="stylesheet">
-				<link href="${styleMainUri}" rel="stylesheet">
+				<link href="${styleResetUri.toString()}" rel="stylesheet">
+				<link href="${styleVSCodeUri.toString()}" rel="stylesheet">
+				<link href="${styleMainUri.toString()}" rel="stylesheet">
 				
 				<title>Daily Tasks</title>
 			</head>
@@ -146,7 +146,7 @@ class TasksViewProvider implements vscode.WebviewViewProvider {
 					</svg>
 					<span>Clear Tasks</span>
 				</button>
-				<script nonce="${nonce}" src="${scriptUri}"></script>
+				<script nonce="${nonce}" src="${scriptUri.toString()}"></script>
 			</body>
 			</html>`;
 	}
