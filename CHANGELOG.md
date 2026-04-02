@@ -2,6 +2,10 @@
 
 All notable changes to the "daily-tasks" extension are documented here.
 
+## v0.2.1
+
+📦️ Dependency maintenance and security fixes
+
 ## v0.2.0
 
 ➕ Task list is now stored globally and now is shown even after refresh or workspace change

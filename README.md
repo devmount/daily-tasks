@@ -50,6 +50,10 @@ However I recommend setting at least the following shortcut for easily adding ne
 
 Here is an overview of the changes that were made in each version.
 
+## v0.2.1
+
+📦️ Dependency maintenance and security fixes
+
 ### v0.2.0
 
 ➕ Task list is now stored globally and now is shown even after refresh or workspace change
