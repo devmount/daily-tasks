@@ -2,6 +2,11 @@
 
 All notable changes to the "daily-tasks" extension are documented here.
 
+## Unreleased
+
+➕ Reorder tasks via drag and drop or up/down arrows
+➕ Optional collapsible details for each task
+
 ## v0.2.1
 
 📦️ Dependency maintenance and security fixes

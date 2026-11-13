@@ -17,10 +17,38 @@ body {
 .task-list .task-item {
 	width: 100%;
 	display: flex;
+	flex-direction: column;
+	gap: .3em;
+	margin-bottom: .4em;
+}
+.task-list .task-item .task-row {
+	display: flex;
 	position: relative;
 	align-items: center;
 	gap: .5em;
-	margin-bottom: .4em;
+}
+.task-list .task-item.dragging {
+	opacity: .4;
+}
+.task-list .task-item.drop-before {
+	box-shadow: 0 -2px 0 0 var(--vscode-focusBorder);
+}
+.task-list .task-item.drop-after {
+	box-shadow: 0 2px 0 0 var(--vscode-focusBorder);
+}
+
+/* drag handle */
+.task-list .task-item .task-handle {
+	cursor: grab;
+	opacity: 0;
+	width: 8px;
+	margin-right: -.2em;
+	user-select: none;
+	letter-spacing: -2px;
+	transition: opacity .15s ease-in-out;
+}
+.task-list .task-item:hover .task-handle {
+	opacity: .7;
 }
 
 /* task checkbox to toggle state */
@@ -48,20 +76,50 @@ body {
 	background-color: transparent;
 }
 
-/* task clear icon */
-.task-list .task-item .task-remove {
+/* task action icons (details, move up/down, remove) */
+.task-list .task-item .task-actions {
 	position: absolute;
-	top: 3px;
+	top: 50%;
 	right: 3px;
-	padding: 2px;
-	font-size: 1.5em;
-	line-height: .8;
-	cursor: pointer;
+	transform: translateY(-50%);
+	display: flex;
+	gap: 2px;
+	padding-left: 2px;
+	background-color: var(--vscode-sideBar-background, transparent);
 	opacity: 0;
 	transition: opacity .15s ease-in-out;
 }
-.task-list .task-item:hover .task-remove {
+.task-list .task-item:hover .task-actions {
 	opacity: 1;
+}
+.task-list .task-item .task-action {
+	padding: 0 3px;
+	line-height: 1.2;
+	cursor: pointer;
+	user-select: none;
+}
+.task-list .task-item .task-action.task-remove {
+	font-size: 1.5em;
+	line-height: .8;
+}
+.task-list .task-item .task-action.disabled {
+	opacity: .3;
+	pointer-events: none;
+}
+/* indicate existing details even when actions are hidden */
+.task-list .task-item .task-details-toggle.has-details {
+	color: var(--vscode-textLink-foreground);
+}
+
+/* task details textarea */
+.task-list .task-item .task-details {
+	margin-left: 2.2em;
+	resize: vertical;
+	color: var(--vscode-input-foreground);
+	background-color: var(--vscode-input-background);
+	border: 1px solid var(--vscode-input-border, transparent);
+	padding: .3em .6em;
+	font-family: inherit;
 }
 
 /* task description input */
