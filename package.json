@@ -15,7 +15,7 @@
     "url": "https://github.com/devmount/daily-tasks"
   },
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.110.0"
   },
   "categories": [
     "Other"
@@ -70,11 +70,11 @@
     "dependencies": false
   },
   "devDependencies": {
-    "@types/node": "25.x",
-    "@types/vscode": "^1.69.0",
-    "oxlint": "^1.30.0",
-    "oxlint-tsgolint": "^0.19.0",
-    "typescript": "^6.0.2"
+    "@types/node": "26.x",
+    "@types/vscode": "~1.110.0",
+    "oxlint": "^1.93.0",
+    "oxlint-tsgolint": "^7.0.2007",
+    "typescript": "^7.0.2"
   },
   "packageManager": "pnpm@11.17.0"
 }
