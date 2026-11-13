@@ -39,19 +39,4 @@ Use `pnpm lint` to check the code with oxlint.
 
 ## Release Notes
 
-Here is an overview of the changes that were made in each version.
-
-## v0.2.1
-
-📦️ Dependency maintenance and security fixes
-
-### v0.2.0
-
-➕ Task list is now stored globally and now is shown even after refresh or workspace change
-💚 Status bar is now enhanced with status colora, tooltip and new-task command
-
-### v0.1.0
-
-🚀 Initial release of DailyTasks.
-
-**Enjoy!**
+See the [changelog](CHANGELOG.md) for the changes in each version.
