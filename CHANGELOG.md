@@ -2,6 +2,10 @@
 
 All notable changes to the "daily-tasks" extension are documented here.
 
+## Unreleased
+
+📦️ Requires VS Code 1.110 or newer
+
 ## v0.2.1
 
 📦️ Dependency maintenance and security fixes
