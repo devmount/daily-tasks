@@ -30,12 +30,12 @@ However I recommend setting at least the following shortcut for easily adding ne
 
 To work on this extension locally:
 
-1. Clone the repository and install dependencies with `npm install`
+1. Clone the repository and install dependencies with `pnpm install`
 2. Open the project folder in VS Code
 3. Press `F5` (or run _Run Extension_ from the Run and Debug view). This starts the TypeScript compiler in watch mode and opens a new Extension Development Host window with the extension loaded.
 4. After making changes, reload the Extension Development Host window (`Ctrl+R` / `Cmd+R`) to apply them.
 
-Use `npm run lint` to check the code with oxlint.
+Use `pnpm lint` to check the code with oxlint.
 
 ## Release Notes
 
