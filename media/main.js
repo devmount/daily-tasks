@@ -37,6 +37,18 @@
 	/** index of the task currently being dragged */
 	let dragIndex = -1;
 
+	/** list item made draggable by pressing its handle */
+	let draggableItem = null;
+
+	// Release the item if the mouse is let go anywhere without a drag having started,
+	// so it doesn't stay draggable (a started drag is cleaned up by dragend instead)
+	document.addEventListener('mouseup', () => {
+		if (draggableItem && dragIndex < 0) {
+			draggableItem.draggable = false;
+		}
+		draggableItem = null;
+	});
+
 	/**
 	 * Create a small icon button for task actions
 	 * @param {string} className
@@ -82,6 +94,8 @@
 
 			// drag and drop reordering (dragging only starts from the handle)
 			li.addEventListener('dragstart', (e) => {
+				// ignore drags not started from the handle (e.g. dragging selected text)
+				if (!li.draggable) { return; }
 				dragIndex = index;
 				e.dataTransfer.effectAllowed = 'move';
 				e.dataTransfer.setData('text/plain', String(index));
@@ -124,8 +138,10 @@
 			handle.className = 'task-handle';
 			handle.textContent = '⋮⋮';
 			handle.title = 'Drag to reorder';
-			handle.addEventListener('mousedown', () => { li.draggable = true; });
-			handle.addEventListener('mouseup', () => { li.draggable = false; });
+			handle.addEventListener('mousedown', () => {
+				li.draggable = true;
+				draggableItem = li;
+			});
 
 			// checkbox to show state of task (unfinished or done)
 			const check = document.createElement('div');
