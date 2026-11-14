@@ -19,26 +19,6 @@ This extension contributes the following commands to the Command palette.
 - _Daily Tasks: Add Task_ (`tasks.addTask`): Creates a new empty task on top
 - _Daily Tasks: Clear Tasks_ (`tasks.clearTasks`): Wipes all existing tasks (cannot be undone)
 
-<!--## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
--->
-
 ## Shortcuts
 
 VS Code provides configuration of shortcuts for all commands.
@@ -46,21 +26,17 @@ However I recommend setting at least the following shortcut for easily adding ne
 
 ![dailytasks_shortcut](https://github.com/devmount/daily-tasks/assets/5441654/2fbd41db-3b42-4558-a44e-156916cd5a62)
 
+## Development
+
+To work on this extension locally:
+
+1. Clone the repository and install dependencies with `pnpm install`
+2. Open the project folder in VS Code
+3. Press `F5` (or run _Run Extension_ from the Run and Debug view). This starts the TypeScript compiler in watch mode and opens a new Extension Development Host window with the extension loaded.
+4. After making changes, reload the Extension Development Host window (`Ctrl+R` / `Cmd+R`) to apply them.
+
+Use `pnpm lint` to check the code with oxlint.
+
 ## Release Notes
 
-Here is an overview of the changes that were made in each version.
-
-## v0.2.1
-
-📦️ Dependency maintenance and security fixes
-
-### v0.2.0
-
-➕ Task list is now stored globally and now is shown even after refresh or workspace change
-💚 Status bar is now enhanced with status colora, tooltip and new-task command
-
-### v0.1.0
-
-🚀 Initial release of DailyTasks.
-
-**Enjoy!**
+See the [changelog](CHANGELOG.md) for the changes in each version.

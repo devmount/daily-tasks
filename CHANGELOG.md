@@ -6,6 +6,7 @@ All notable changes to the "daily-tasks" extension are documented here.
 
 ➕ Reorder tasks via drag and drop using a handle
 ➕ Optional collapsible details for each task
+📦️ Requires VS Code 1.110 or newer
 
 ## v0.2.1
 

@@ -2,7 +2,9 @@
 .vscode-test/**
 src/**
 .gitignore
-.yarnrc
+.github/**
+pnpm-lock.yaml
+node_modules/**
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/*.map
