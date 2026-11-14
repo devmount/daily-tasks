@@ -177,16 +177,12 @@
 				task.expanded = !task.expanded;
 				updateTaskList(tasks, true);
 			});
-			const up = actionButton('task-up', '↑', 'Move up', () => moveTask(index, index - 1));
-			const down = actionButton('task-down', '↓', 'Move down', () => moveTask(index, index + 1));
-			if (index === 0) { up.classList.add('disabled'); }
-			if (index === tasks.length - 1) { down.classList.add('disabled'); }
 			// clear icon to remove single task
 			const clear = actionButton('task-remove', '×', 'Remove task', () => {
 				tasks.splice(tasks.indexOf(task), 1);
 				updateTaskList(tasks, true);
 			});
-			actions.append(toggle, up, down, clear);
+			actions.append(toggle, clear);
 
 			row.append(handle, check, description, actions);
 			li.appendChild(row);

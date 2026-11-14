@@ -45,7 +45,8 @@ body {
 /* drag handle */
 .task-list .task-item .task-handle {
 	cursor: grab;
-	opacity: 0;
+	/* always visible, so the space it takes is a deliberate gutter */
+	opacity: .45;
 	flex-shrink: 0;
 	width: var(--task-handle-width);
 	margin-right: var(--task-handle-margin);
@@ -54,7 +55,7 @@ body {
 	transition: opacity .15s ease-in-out;
 }
 .task-list .task-item:hover .task-handle {
-	opacity: .7;
+	opacity: .9;
 }
 
 /* task checkbox to toggle state */
@@ -108,10 +109,6 @@ body {
 .task-list .task-item .task-action.task-remove {
 	font-size: 1.5em;
 	line-height: .8;
-}
-.task-list .task-item .task-action.disabled {
-	opacity: .3;
-	pointer-events: none;
 }
 /* indicator for tasks having details, visible without hovering (replaced by the actions on hover) */
 .task-list .task-item.has-details .task-row::after {
