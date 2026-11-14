@@ -98,7 +98,8 @@
 				if (!li.draggable) { return; }
 				dragIndex = index;
 				e.dataTransfer.effectAllowed = 'move';
-				e.dataTransfer.setData('text/plain', String(index));
+				// custom type only, so dropping outside the list (e.g. into an editor) pastes nothing
+				e.dataTransfer.setData('application/x-daily-task', String(index));
 				li.classList.add('dragging');
 			});
 			li.addEventListener('dragend', () => {
