@@ -124,6 +124,8 @@ body {
 /* task details textarea */
 .task-list .task-item .task-details {
 	margin-left: 2.2em;
+	/* vscode.css sets 100% for textareas, which together with the margin overflows the view */
+	width: auto;
 	resize: vertical;
 	color: var(--vscode-input-foreground);
 	background-color: var(--vscode-input-background);
