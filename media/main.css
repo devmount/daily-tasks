@@ -92,8 +92,6 @@ body {
 	transform: translateY(-50%);
 	display: flex;
 	gap: 2px;
-	padding-left: 2px;
-	background-color: var(--vscode-sideBar-background, transparent);
 	opacity: 0;
 	transition: opacity .15s ease-in-out;
 }
@@ -151,6 +149,8 @@ body {
 }
 .task-list .task-item:hover .task-input {
 	border-color: var(--vscode-input-border);
+	/* make room for the action buttons, so they never cover the text (no background needed) */
+	padding-right: 4em;
 }
 
 /* action buttons */
