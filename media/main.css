@@ -106,9 +106,19 @@ body {
 	opacity: .3;
 	pointer-events: none;
 }
-/* indicate existing details even when actions are hidden */
-.task-list .task-item .task-details-toggle.has-details {
-	color: var(--vscode-textLink-foreground);
+/* indicator for tasks having details, visible without hovering (replaced by the actions on hover) */
+.task-list .task-item.has-details .task-row::after {
+	content: '≡';
+	position: absolute;
+	right: 8px;
+	opacity: .7;
+	pointer-events: none;
+}
+.task-list .task-item.has-details:hover .task-row::after {
+	opacity: 0;
+}
+.task-list .task-item.has-details .task-input {
+	padding-right: 1.8em;
 }
 
 /* task details textarea */

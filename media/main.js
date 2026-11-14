@@ -91,6 +91,10 @@
 			// init list entry for task
 			const li = document.createElement('li');
 			li.className = 'task-item';
+			// mark tasks having details, so this stays visible without hovering
+			if (task.details && task.details.trim()) {
+				li.classList.add('has-details');
+			}
 
 			// drag and drop reordering (dragging only starts from the handle)
 			li.addEventListener('dragstart', (e) => {
@@ -173,9 +177,6 @@
 				task.expanded = !task.expanded;
 				updateTaskList(tasks, true);
 			});
-			if (task.details) {
-				toggle.classList.add('has-details');
-			}
 			const up = actionButton('task-up', '↑', 'Move up', () => moveTask(index, index - 1));
 			const down = actionButton('task-down', '↓', 'Move down', () => moveTask(index, index + 1));
 			if (index === 0) { up.classList.add('disabled'); }
