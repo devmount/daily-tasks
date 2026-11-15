@@ -170,7 +170,7 @@
 				updateTaskList(tasks, true);
 			});
 
-			// hover actions: details toggle, move up, move down, remove
+			// hover actions: details toggle, remove
 			const actions = document.createElement('div');
 			actions.className = 'task-actions';
 			const toggle = actionButton('task-details-toggle', task.expanded ? '▾' : '▸', 'Show/hide details', () => {

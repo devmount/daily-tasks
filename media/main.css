@@ -84,7 +84,7 @@ body {
 	background-color: transparent;
 }
 
-/* task action icons (details, move up/down, remove) */
+/* task action icons (details, remove) */
 .task-list .task-item .task-actions {
 	position: absolute;
 	top: 50%;
