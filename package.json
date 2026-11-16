@@ -3,7 +3,7 @@
   "displayName": "Daily Tasks",
   "description": "Quickly manage tasks on a daily basis",
   "icon": "icon.png",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "license": "MIT",
   "author": {
     "name": "Andreas Müller",
@@ -64,7 +64,9 @@
     "vscode:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "lint": "oxlint src --type-aware"
+    "lint": "oxlint src --type-aware",
+    "package": "pnpm dlx @vscode/vsce package",
+    "release": "pnpm dlx @vscode/vsce publish --packagePath daily-tasks-$npm_package_version.vsix"
   },
   "vsce": {
     "dependencies": false
