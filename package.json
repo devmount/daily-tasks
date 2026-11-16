@@ -64,7 +64,8 @@
     "vscode:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "lint": "oxlint src --type-aware"
+    "lint": "oxlint src --type-aware",
+    "package": "vsce package"
   },
   "vsce": {
     "dependencies": false
@@ -72,6 +73,7 @@
   "devDependencies": {
     "@types/node": "26.x",
     "@types/vscode": "~1.110.0",
+    "@vscode/vsce": "^4.1.1",
     "oxlint": "^1.93.0",
     "oxlint-tsgolint": "^7.0.2007",
     "typescript": "^7.0.2"

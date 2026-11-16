@@ -37,6 +37,8 @@ To work on this extension locally:
 
 Use `pnpm lint` to check the code with oxlint.
 
+Use `pnpm package` to build a `daily-tasks-<version>.vsix` file for publishing.
+
 ## Release Notes
 
 See the [changelog](CHANGELOG.md) for the changes in each version.
