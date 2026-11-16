@@ -2,6 +2,10 @@
 
 All notable changes to the "daily-tasks" extension are documented here.
 
+## Unreleased
+
+- 📦️ Dependency maintenance
+
 ## v0.3.0
 
 - ➕ Reorder tasks via drag and drop using a handle
