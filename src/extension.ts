@@ -3,6 +3,9 @@
 import * as vscode from 'vscode';
 import { LocalStorageService } from './localStorageService';
 
+// A single task; details are optional and shown collapsed below the task name
+interface Task { value: string, done: boolean, details?: string, expanded?: boolean }
+
 // Status bar entry to show number of open tasks
 let tasksStatusBarItem: vscode.StatusBarItem;
 
@@ -75,12 +78,12 @@ class TasksViewProvider implements vscode.WebviewViewProvider {
 					updateStatusBarItem(data.open, data.total);
 					break;
 				case 'tasksSave':
-					storageManager.setValue<Array<{ value: string, done: boolean }>>('list', data.value);
+					storageManager.setValue<Task[]>('list', data.value);
 			}
 		});
 
 		// inititial task list from storage
-		let tasks = storageManager.getValue<Array<{ value: string, done: boolean }>>('list');
+		let tasks = storageManager.getValue<Task[]>('list');
 		if (tasks) {
 			webviewView.webview.postMessage({ type: 'initTasks', value: tasks });
 		}
