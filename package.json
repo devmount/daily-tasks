@@ -65,8 +65,8 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "lint": "oxlint src --type-aware",
-    "package": "vsce package",
-    "release": "vsce publish --packagePath daily-tasks-$npm_package_version.vsix"
+    "package": "pnpm dlx @vscode/vsce package",
+    "release": "pnpm dlx @vscode/vsce publish --packagePath daily-tasks-$npm_package_version.vsix"
   },
   "vsce": {
     "dependencies": false
@@ -74,7 +74,6 @@
   "devDependencies": {
     "@types/node": "26.x",
     "@types/vscode": "~1.110.0",
-    "@vscode/vsce": "^4.1.1",
     "oxlint": "^1.93.0",
     "oxlint-tsgolint": "^7.0.2007",
     "typescript": "^7.0.2"

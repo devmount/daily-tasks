@@ -4,7 +4,6 @@ src/**
 .gitignore
 .github/**
 pnpm-lock.yaml
-pnpm-workspace.yaml
 node_modules/**
 vsc-extension-quickstart.md
 **/tsconfig.json

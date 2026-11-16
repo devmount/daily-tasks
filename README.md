@@ -37,7 +37,7 @@ To work on this extension locally:
 
 Use `pnpm lint` to check the code with oxlint.
 
-Use `pnpm package` to build a `daily-tasks-<version>.vsix` file for publishing. After checking it, run `pnpm release` to upload exactly that file to the VS Code Marketplace (requires a one-time `pnpm vsce login <user>`).
+Use `pnpm package` to build a `daily-tasks-<version>.vsix` file for publishing. After checking it, run `pnpm release` to upload exactly that file to the VS Code Marketplace (requires a one-time `pnpm dlx @vscode/vsce login <user>`).
 
 ## Release Notes
 

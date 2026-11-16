@@ -1,2 +1,0 @@
-allowBuilds:
-  '@vscode/vsce-sign': false
