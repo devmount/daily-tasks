@@ -2,7 +2,7 @@
 
 All notable changes to the "daily-tasks" extension are documented here.
 
-## Unreleased
+## v0.3.1
 
 - 📦️ Dependency maintenance
 
